@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUD 디자인 가이드 리소스</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans KR', Arial, sans-serif; color: #333; background: #fff; font-size: 13px; line-height: 1.6; }
+.page { display: none; min-height: 100vh; background: #fff; padding-bottom: 60px; }
+.page.active { display: block; }
+
+/* Banner (친절한 가이드 톤) */
+.banner { border-bottom: 2px solid #0052CC; background: #F4F5F7; padding: 24px 32px; }
+.banner-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
+.banner h1 { font-size: 22px; font-weight: 700; color: #172B4D; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;}
+.banner .sub { font-size: 14px; color: #5E6C84; }
+.banner .meta { text-align: right; font-size: 11px; color: #6B778C; }
+
+/* Sub Page Header */
+.sub-header { border-bottom: 1px solid #DFE1E6; background: #F4F5F7; padding: 20px 32px; }
+.sub-header-inner { max-width: 1000px; margin: 0 auto; }
+.back-link { font-size: 12px; font-weight: 600; color: #0052CC; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 12px;}
+.back-link:hover { text-decoration: underline; }
+.sub-header h1 { font-size: 20px; font-weight: 700; color: #172B4D; margin: 0; }
+.sub-header .desc { font-size: 13px; color: #5E6C84; margin-top: 6px; }
+
+/* Content */
+.content { max-width: 1200px; margin: 0 auto; padding: 32px; }
+.content-narrow { max-width: 1000px; margin: 0 auto; padding: 40px 32px; }
+
+/* Grid */
+.grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 768px) { .grid-2x2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* Panel (설명 위주의 부드러운 패널) */
+.panel { border: 1px solid #DFE1E6; background: #fff; border-radius: 8px; overflow: hidden; margin-bottom: 24px; }
+.panel-header { background: #FAFBFC; border-bottom: 1px solid #DFE1E6; padding: 16px 20px; font-size: 15px; font-weight: 700; color: #172B4D; display: flex; justify-content: space-between; align-items: center; }
+.panel-body { padding: 24px; height: 100%; }
+
+/* Info Boxes (가이드용 안내 박스) */
+.info-box { border-left: 4px solid #0052CC; background: #E6EFFC; padding: 16px; border-radius: 0 4px 4px 0; margin-bottom: 24px; }
+.info-box p { font-size: 13px; color: #172B4D; margin: 0; }
+.success-box { border-left: 4px solid #36B37E; background: #E3FCEF; padding: 16px; border-radius: 0 4px 4px 0; margin-bottom: 24px; }
+.success-box p { font-size: 13px; color: #006644; margin: 0; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px;}
+th { border-bottom: 1px solid #DFE1E6; padding: 10px; text-align: left; font-weight: 700; color: #5E6C84; }
+td { border-bottom: 1px solid #F4F5F7; padding: 10px; color: #333; }
+tr.zebra td { background: #FAFBFC; }
+code { font-size: 12px; font-family: monospace; background: #F4F5F7; padding: 2px 6px; border-radius: 4px; color: #0052CC; font-weight: 600; }
+
+/* Links */
+.detail-link { font-size: 12px; font-weight: 600; color: #0052CC; cursor: pointer; text-decoration: none; background: #fff; border: 1px solid #0052CC; padding: 4px 12px; border-radius: 4px; transition: 0.2s;}
+.detail-link:hover { background: #0052CC; color: #fff; }
+
+/* Helpers */
+.flex { display: flex; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.flex-1 { flex: 1; }
+.items-center { align-items: center; }
+
+/* Swatch */
+.swatch { width: 20px; height: 20px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1); margin: 0 auto; }
+
+/* Color Combo Styles */
+.color-theme-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+@media (max-width: 768px) { .color-theme-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .color-theme-grid { grid-template-columns: 1fr; } }
+.tc-card { border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #DFE1E6; background: #fff; transition: transform 0.2s; cursor: pointer; }
+.tc-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.tc-color { height: 60px; display: flex; align-items: center; justify-content: flex-end; padding: 0 16px; font-family: monospace; font-weight: bold; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+.palette-card { border: 1px solid #DFE1E6; border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+.palette-header { padding: 16px; font-size: 15px; font-weight: bold; color: #172B4D; border-bottom: 1px solid #DFE1E6; display: flex; align-items: center; gap: 8px;}
+.palette-body { padding: 20px; flex: 1;}
+.palette-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #DFE1E6;}
+.palette-item:last-child { border-bottom: none; padding-bottom: 0; }
+.palette-role { font-size: 12px; color: #5E6C84; font-weight: 600; width: 100px; }
+.palette-box { width: 32px; height: 32px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.1); margin-right: 12px; flex-shrink: 0;}
+.palette-hex { font-family: monospace; font-size: 13px; font-weight: bold; color: #172B4D; }
+
+/* Typo Combo Styles */
+.typo-card { border: 1px solid #DFE1E6; border-radius: 8px; background: #fff; padding: 24px; position: relative; overflow: hidden; }
+.typo-card-header { font-size: 16px; font-weight: 800; color: #172B4D; margin-bottom: 6px; }
+.typo-card-desc { font-size: 12px; color: #5E6C84; margin-bottom: 20px; }
+.typo-row { display: flex; align-items: center; border-bottom: 1px dashed #DFE1E6; padding: 12px 0; }
+.typo-row:last-child { border-bottom: none; padding-bottom: 0; }
+.typo-size-badge { background: #E6EFFC; color: #0052CC; font-family: monospace; font-weight: bold; font-size: 13px; padding: 4px 8px; border-radius: 4px; width: 50px; text-align: center; margin-right: 16px; }
+
+/* Control Details Styles */
+.control-card { background: #fff; border: 1px solid #DFE1E6; border-radius: 6px; padding: 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 20px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+.control-visual { flex: 1; padding-right: 20px; border-right: 1px dashed #DFE1E6; }
+.control-specs { flex: 1.5; }
+.spec-line { font-size: 12px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.spec-badge { background: #E6EFFC; color: #0052CC; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; display: inline-block; width: 64px; text-align: center; flex-shrink: 0;}
+.state-label { font-size: 11px; color: #6B778C; font-weight: bold; width: 70px; text-align: right; margin-right: 16px; }
+.btn { height: 32px; padding: 0 12px; font-size: 12px; font-weight: 600; border-radius: 4px; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;}
+.btn-solid { background: #0052CC; color: #fff; }
+.btn-outline { background: #fff; color: #172B4D; border: 1px solid #DFE1E6; }
+.mini-input { border: 1px solid #DFE1E6; height: 28px; border-radius: 4px; padding: 0 8px; width: 100%; font-size: 11px; }
+
+/* Easy UI Styles (For Main Page Layout Panel) */
+.easy-box { border: 1px solid #DFE1E6; border-radius: 6px; padding: 16px; margin-bottom: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+.easy-title { font-size: 14px; font-weight: 700; color: #0052CC; margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
+.easy-desc { font-size: 12px; color: #5E6C84; margin-bottom: 16px; }
+.bg-bad { background: #FFF5F5; border: 1px solid #FFBDAD; border-radius: 4px; padding: 12px; }
+.bg-good { background: #E3FCEF; border: 1px solid #ABF5D1; border-radius: 4px; padding: 12px; }
+.easy-input { border: 1px solid #DFE1E6; height: 32px; border-radius: 4px; padding: 0 8px; width: 100%; font-size: 12px; outline: none; background: #fff; color: #172B4D;}
+.easy-btn { background: #0052CC; color: white; border: none; height: 32px; border-radius: 4px; padding: 0 16px; font-size: 12px; font-weight: bold; cursor: pointer; }
+
+/* Dashboard Layout Styles */
+.dash-var-card { border: 1px solid #DFE1E6; border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+.dash-var-mockup { background: #F4F5F7; padding: 16px; height: 180px; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid #DFE1E6;}
+.dash-mock-header { background: #fff; height: 20px; border-radius: 2px; border: 1px solid #DFE1E6; display:flex; align-items:center; padding: 0 8px; gap:8px;}
+.dash-mock-header-title { width: 40px; height: 6px; background: #172B4D; border-radius: 2px;}
+.dash-mock-header-search { width: 80px; height: 8px; background: #EBECF0; border-radius: 2px; margin-left: auto;}
+.dash-mock-body { display: flex; flex: 1; gap: 12px; }
+.dash-mock-card { background: #fff; border: 1px solid #DFE1E6; border-radius: 4px; flex: 1; display:flex; flex-direction:column; padding: 8px; gap: 6px;}
+.dash-mock-card-title { width: 50%; height: 6px; background: #5E6C84; border-radius: 2px;}
+.dash-mock-card-content { flex: 1; background: #E6EFFC; border-radius: 2px;}
+.dash-var-desc { padding: 16px; }
+.dash-var-desc h4 { font-size: 14px; font-weight: 700; color: #172B4D; margin-bottom: 6px;}
+.dash-var-desc p { font-size: 12px; color: #5E6C84; line-height: 1.5;}
+
+.spacing-formula-box { background: #FAFBFC; border: 1px solid #DFE1E6; border-radius: 8px; padding: 32px; position: relative; display: flex; gap: 40px; align-items: stretch;}
+.sf-diagram { flex: 1.2; position: relative; background: #DFE1E6; padding: 24px; border-radius: 8px; display: flex; flex-direction: column; gap: 20px;}
+.sf-card { background: #fff; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display:flex; flex-direction:column; position: relative;}
+.sf-card-header { display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid #F4F5F7; padding: 16px 20px;}
+.sf-card-title { font-weight: bold; color: #172B4D; font-size: 14px;}
+.sf-card-body { padding: 20px; flex: 1; background: #FAFBFC; margin: 0 20px 20px 20px; border: 1px dashed #C5CDD7; display:flex; align-items:center; justify-content:center; color:#838F9F; font-size:12px;}
+
+/* Spacing Badges */
+.gap-badge { position: absolute; background: #EA5455; color: #fff; font-size: 11px; font-weight: bold; padding: 2px 6px; border-radius: 12px; z-index: 10; font-family: monospace; display:flex; align-items:center; justify-content:center; box-shadow: 0 2px 4px rgba(234,84,85,0.3);}
+.gap-line-v { position: absolute; background: #EA5455; width: 2px; }
+.gap-line-h { position: absolute; background: #EA5455; height: 2px; }
+.pad-badge { position: absolute; background: #36B37E; color: #fff; font-size: 11px; font-weight: bold; padding: 2px 6px; border-radius: 12px; z-index: 10; font-family: monospace; display:flex; align-items:center; justify-content:center; box-shadow: 0 2px 4px rgba(54,179,126,0.3);}
+.pad-area { position: absolute; border: 2px dashed #36B37E; background: rgba(54,179,126,0.1); pointer-events: none;}
+
+.sf-specs { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px;}
+.sf-spec-item { display: flex; flex-direction: column; gap: 4px; padding-bottom: 12px; border-bottom: 1px solid #DFE1E6;}
+.sf-spec-item:last-child { border-bottom: none; padding-bottom: 0;}
+.sf-spec-name { font-weight: 700; color: #172B4D; font-size: 14px; display:flex; align-items:center; gap:8px;}
+.sf-spec-val { background: #F4F5F7; border: 1px solid #DFE1E6; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-weight: bold; color: #172B4D; font-size: 13px;}
+.sf-spec-desc { font-size: 12px; color: #5E6C84;}
+
+</style>
+</head>
+<body>
+
+<!-- ===== MAIN PAGE (요약형 가이드) ===== -->
+<div id="page-main" class="page active">
+  <div class="banner">
+    <div class="banner-inner">
+      <div>
+        <h1>📘 AUD 디자인 리소스 (가이드)</h1>
+        <p class="sub">화면 설계가 막막하신가요? 색상, 폰트, 여백 등 디자인의 기본 뼈대를 친절하게 안내해 드립니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    
+    <div class="info-box" style="border-radius: 4px; border-left: none; border-top: 4px solid #0052CC;">
+      <p style="font-weight: 600; font-size: 15px; margin-bottom: 8px;">💡 이 문서는 어떻게 활용하나요?</p>
+      <p style="color: #444;">각 패널의 우측 상단 <b>[상세 가이드 보기]</b> 버튼을 누르시면, "왜 이렇게 설정해야 하는지", "잘못된 예시와 잘된 예시의 차이는 무엇인지" 등 구체적인 설명과 규격을 확인하실 수 있습니다.</p>
+    </div>
+
+    <div class="grid-2x2">
+
+      <!-- 1. 컬러 가이드 요약 (개편됨) -->
+      <div class="panel">
+        <div class="panel-header">
+          <span>🎨 1. 컬러 시스템 (Color)</span>
+          <a class="detail-link" onclick="showPage('color')">상세 가이드 보기</a>
+        </div>
+        <div class="panel-body">
+          <p style="color:#5E6C84; margin-bottom:16px;">주조색(Primary)은 한 가지만 쓰고, 나머지는 무채색으로 채워야 화면이 깔끔해집니다.</p>
+          <table>
+            <thead><tr><th style="width: 40px; text-align:center;">색상</th><th>이름</th><th>HEX</th><th>용도</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><div class="swatch" style="background:#0052CC"></div></td>
+                <td style="font-weight:600">Primary</td>
+                <td><code>#0052CC</code></td>
+                <td>주요 버튼, 활성 탭</td>
+              </tr>
+              <tr class="zebra">
+                <td><div class="swatch" style="background:#36B37E"></div></td>
+                <td style="font-weight:600">Success</td>
+                <td><code>#36B37E</code></td>
+                <td>완료, 승인</td>
+              </tr>
+              <tr>
+                <td><div class="swatch" style="background:#EA5455"></div></td>
+                <td style="font-weight:600">Danger</td>
+                <td><code>#EA5455</code></td>
+                <td>삭제, 에러</td>
+              </tr>
+              <tr class="zebra">
+                <td><div class="swatch" style="background:#FF9F43"></div></td>
+                <td style="font-weight:600">Warning</td>
+                <td><code>#FF9F43</code></td>
+                <td>대기, 주의</td>
+              </tr>
+              <tr>
+                <td><div class="swatch" style="background:#F4F5F7"></div></td>
+                <td style="font-weight:600">Background</td>
+                <td><code>#F4F5F7</code></td>
+                <td>배경색</td>
+              </tr>
+              <tr class="zebra">
+                <td><div class="swatch" style="background:#DFE1E6"></div></td>
+                <td style="font-weight:600">Border</td>
+                <td><code>#DFE1E6</code></td>
+                <td>라인/구분선</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:16px; border:1px solid #DFE1E6; padding:12px; border-radius:4px; background:#fff;">
+            <p style="font-size:12px; font-weight:700; color:#5E6C84; margin-bottom:12px;">▼ 테마 프리셋</p>
+            <div class="flex gap-4">
+              <div class="flex-1">
+                <div class="flex" style="height:24px; border-radius:4px; overflow:hidden;">
+                  <div style="flex:1; background:#091E42"></div><div style="flex:1; background:#0052CC"></div><div style="flex:1; background:#DEEBFF"></div><div style="flex:1; background:#E6EFFC"></div><div style="flex:1; background:#F4F5F7"></div>
+                </div>
+                <p style="text-align:center; font-size:11px; color:#5E6C84; margin-top:6px;">Corporate Blue</p>
+              </div>
+              <div class="flex-1">
+                <div class="flex" style="height:24px; border-radius:4px; overflow:hidden;">
+                  <div style="flex:1; background:#4E413B"></div><div style="flex:1; background:#FF9F43"></div><div style="flex:1; background:#FFD8C9"></div><div style="flex:1; background:#FFF7F5"></div><div style="flex:1; background:#FFFFFF; border:1px solid #DFE1E6; border-left:none;"></div>
+                </div>
+                <p style="text-align:center; font-size:11px; color:#5E6C84; margin-top:6px;">Soft Warm</p>
+              </div>
+              <div class="flex-1">
+                <div class="flex" style="height:24px; border-radius:4px; overflow:hidden;">
+                  <div style="flex:1; background:#1A273A"></div><div style="flex:1; background:#3E4A62"></div><div style="flex:1; background:#C24D2C"></div><div style="flex:1; background:#00D4AA"></div><div style="flex:1; background:#EA5455"></div>
+                </div>
+                <p style="text-align:center; font-size:11px; color:#5E6C84; margin-top:6px;">Dark Mode</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 타이포그래피 가이드 요약 (개편됨) -->
+      <div class="panel">
+        <div class="panel-header">
+          <span>🔤 2. 타이포그래피 (Typography)</span>
+          <a class="detail-link" onclick="showPage('typography')">상세 가이드 보기</a>
+        </div>
+        <div class="panel-body">
+          <p style="color:#5E6C84; margin-bottom:16px;">크기와 굵기만 잘 구분해도 데이터가 한눈에 들어옵니다.</p>
+          <table style="margin-bottom: 20px;">
+            <thead><tr><th>레벨</th><th>크기</th><th>굵기</th><th>미리보기</th></tr></thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600">Page Title</td>
+                <td><code>24px</code></td>
+                <td>Bold (700)</td>
+                <td><span style="font-size:18px; font-weight:700; color:#172B4D;">페이지 타이틀</span></td>
+              </tr>
+              <tr class="zebra">
+                <td style="font-weight:600">Section Header</td>
+                <td><code>16px</code></td>
+                <td>Semi-Bold (600)</td>
+                <td><span style="font-size:15px; font-weight:600; color:#172B4D;">섹션 헤더</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600">Body Text</td>
+                <td><code>14px</code></td>
+                <td>Regular (400)</td>
+                <td><span style="font-size:13px; color:#333;">본문 텍스트</span></td>
+              </tr>
+              <tr class="zebra">
+                <td style="font-weight:600">Caption</td>
+                <td><code>12px</code></td>
+                <td>Regular (400)</td>
+                <td><span style="font-size:11px; color:#5E6C84;">캡션 텍스트</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="border:1px solid #DFE1E6; padding:16px; border-radius:4px; background:#fff;">
+            <p style="font-size:12px; font-weight:700; color:#5E6C84; margin-bottom:12px;">▼ 정렬 원칙</p>
+            <table style="margin-bottom:0;">
+              <tbody>
+                <tr>
+                  <td style="text-align:right; font-family:monospace; font-weight:700; font-size:14px; width:45%; border-right: 1px solid #F4F5F7;">1,234,567</td>
+                  <td style="color:#5E6C84; padding-left: 16px;">숫자 → <strong style="color:#172B4D;">우측 정렬</strong></td>
+                </tr>
+                <tr class="zebra">
+                  <td style="text-align:left; font-weight:700; border-right: 1px solid #F4F5F7;">홍길동</td>
+                  <td style="color:#5E6C84; padding-left: 16px;">텍스트 → <strong style="color:#172B4D;">좌측 정렬</strong></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center; font-family:monospace; font-weight:700; border-right: 1px solid #F4F5F7;">2024-01-15</td>
+                  <td style="color:#5E6C84; padding-left: 16px;">날짜 → <strong style="color:#172B4D;">중앙 정렬</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 레이아웃 & 여백 요약 -->
+      <div class="panel">
+        <div class="panel-header">
+          <span>📐 3. 레이아웃 및 간격 (Layout & Spacing)</span>
+          <a class="detail-link" onclick="showPage('spacing')">전체 레이아웃 간격 보기 →</a>
+        </div>
+        <div class="panel-body">
+          <p style="color:#5E6C84; margin-bottom:16px;">복잡한 여백 수치 대신, 아래 2가지 핵심 규칙만 적용해 보세요.</p>
+          
+          <!-- 규칙 1 -->
+          <div class="easy-box">
+            <div class="easy-title">📌 규칙 1. 관련된 것끼리 묶어주기</div>
+            <div class="easy-desc">제목과 입력칸은 가깝게, 다른 항목과는 멀리 띄워 보세요.</div>
+            <div class="flex gap-3">
+              <div class="flex-1 bg-bad">
+                <div style="font-size:11px; color:#BF2600; font-weight:bold; margin-bottom:8px;">❌ 숨막히는 간격</div>
+                <div style="font-size:12px; font-weight:bold; margin-bottom:2px; color:#172B4D;">이름</div>
+                <input type="text" class="easy-input" style="margin-bottom:2px;" value="홍길동" readonly>
+                <div style="font-size:12px; font-weight:bold; margin-bottom:2px; color:#172B4D;">부서</div>
+                <input type="text" class="easy-input" value="영업팀" readonly>
+              </div>
+              <div class="flex-1 bg-good">
+                <div style="font-size:11px; color:#006644; font-weight:bold; margin-bottom:8px;">✅ 보기 편한 간격</div>
+                <div style="font-size:12px; font-weight:bold; margin-bottom:4px; color:#172B4D;">이름</div>
+                <input type="text" class="easy-input" style="margin-bottom:16px;" value="홍길동" readonly>
+                <div style="font-size:12px; font-weight:bold; margin-bottom:4px; color:#172B4D;">부서</div>
+                <input type="text" class="easy-input" value="영업팀" readonly>
+              </div>
+            </div>
+          </div>
+
+          <!-- 규칙 2 -->
+          <div class="easy-box" style="margin-bottom:0;">
+            <div class="easy-title">📌 규칙 2. 컨트롤 높이 일치시키기</div>
+            <div class="easy-desc">입력창과 버튼의 높이만 같아도 화면이 정돈되어 보입니다.</div>
+            <div class="flex items-center gap-3" style="background:#FAFBFC; border:1px solid #DFE1E6; padding:16px; border-radius:4px;">
+              <span style="font-size:13px; font-weight:bold; color:#172B4D;">사원명</span>
+              <input type="text" class="easy-input" style="width:140px;" value="입력창 높이 32" readonly>
+              <button class="easy-btn">버튼 높이 32</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 컨트롤 요약 -->
+      <div class="panel">
+        <div class="panel-header">
+          <span>🧩 4. 컨트롤 속성 (Controls)</span>
+          <a class="detail-link" onclick="showPage('controls')">상세 가이드 보기</a>
+        </div>
+        <div class="panel-body">
+          <p style="color:#5E6C84; margin-bottom:16px;">자주 쓰는 버튼과 입력창의 형태를 통일하여 시스템의 일관성을 높여 보세요.</p>
+          <table>
+            <thead><tr><th>컨트롤 종류</th><th>표준 높이 (Height)</th><th>테두리 (Border)</th></tr></thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600">주요 버튼</td>
+                <td><code>36px</code></td>
+                <td>없음 (배경색 활용)</td>
+              </tr>
+              <tr class="zebra">
+                <td style="font-weight:600">입력창 / 캘린더</td>
+                <td><code>36px</code></td>
+                <td><code>1px solid #DFE1E6</code></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600">데이터 그리드</td>
+                <td>행 높이 <code>36px</code></td>
+                <td><code>1px solid #DFE1E6</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     DETAIL PAGE 1: COLORS (추천 색상 팔레트)
+     ========================================================= -->
+<div id="page-color" class="page">
+  <div class="sub-header">
+    <div class="sub-header-inner">
+      <a class="back-link" onclick="showPage('main')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        메인으로 돌아가기
+      </a>
+      <h1>🎨 화면 전체를 위한 추천 색상 팔레트 (Color Palettes)</h1>
+      <p class="desc">화면의 컨셉을 결정짓는 추천 색상 팔레트입니다. 원하는 테마를 골라 아래 항목별 매핑 가이드에 맞춰 색상을 적용해 보세요.</p>
+    </div>
+  </div>
+
+  <div class="content-narrow">
+    <div class="grid-3">
+      
+      <!-- Palette 1: Ocean Blue -->
+      <div class="palette-card">
+        <div class="palette-header" style="background: #F6F7FB;">
+          <div class="swatch" style="background: #4FC0E8;"></div>
+          <span>Ocean Blue (신뢰/깔끔)</span>
+        </div>
+        <div class="palette-body">
+          <p style="font-size: 12px; color: #5E6C84; margin-bottom: 20px;">시원한 스카이블루와 네이비 텍스트의 조합입니다. 가장 무난하고 신뢰감을 주는 업무 시스템에 추천합니다.</p>
+          
+          <div class="palette-item">
+            <div class="palette-role">포인트/버튼</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #4FC0E8;"></div>
+              <div class="palette-hex">#4FC0E8</div>
+            </div>
+          </div>
+          
+          <div class="palette-item">
+            <div class="palette-role">화면 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #F6F7FB;"></div>
+              <div class="palette-hex">#F6F7FB</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">박스/카드 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #FFFFFF;"></div>
+              <div class="palette-hex">#FFFFFF</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">테두리/구분선</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #DFE1E6;"></div>
+              <div class="palette-hex">#DFE1E6</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">기본 글씨색</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #3B4A6B;"></div>
+              <div class="palette-hex">#3B4A6B</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palette 2: Nature Green -->
+      <div class="palette-card">
+        <div class="palette-header" style="background: #F9FCE8;">
+          <div class="swatch" style="background: #66D47E;"></div>
+          <span>Nature Green (편안/안정)</span>
+        </div>
+        <div class="palette-body">
+          <p style="font-size: 12px; color: #5E6C84; margin-bottom: 20px;">데이터가 빽빽하여 눈이 피로하기 쉬운 회계, 통계성 화면에 눈을 편안하게 해주는 그린톤 조합입니다.</p>
+          
+          <div class="palette-item">
+            <div class="palette-role">포인트/버튼</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #66D47E;"></div>
+              <div class="palette-hex">#66D47E</div>
+            </div>
+          </div>
+          
+          <div class="palette-item">
+            <div class="palette-role">화면 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #F9FCE8;"></div>
+              <div class="palette-hex">#F9FCE8</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">박스/카드 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #FFFFFF;"></div>
+              <div class="palette-hex">#FFFFFF</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">테두리/구분선</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #C6E772;"></div>
+              <div class="palette-hex">#C6E772</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">기본 글씨색</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #073835;"></div>
+              <div class="palette-hex">#073835</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palette 3: Modern Dark -->
+      <div class="palette-card">
+        <div class="palette-header" style="background: #1A273A; border-bottom: 1px solid #3E4A62;">
+          <div class="swatch" style="background: #C24D2C; border:none;"></div>
+          <span style="color: #D9D9D7;">Modern Dark (다크모드)</span>
+        </div>
+        <div class="palette-body" style="background: #1A273A;">
+          <p style="font-size: 12px; color: #8A9CA8; margin-bottom: 20px;">어두운 배경에 테라코타 오렌지로 포인트를 주어 차트/대시보드를 돋보이게 하는 다크모드 전용 테마입니다.</p>
+          
+          <div class="palette-item" style="border-bottom: 1px dashed #3E4A62;">
+            <div class="palette-role" style="color: #8A9CA8;">포인트/버튼</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #C24D2C; border:none;"></div>
+              <div class="palette-hex" style="color: #D9D9D7;">#C24D2C</div>
+            </div>
+          </div>
+          
+          <div class="palette-item" style="border-bottom: 1px dashed #3E4A62;">
+            <div class="palette-role" style="color: #8A9CA8;">화면 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #1A273A; border: 1px solid #3E4A62;"></div>
+              <div class="palette-hex" style="color: #D9D9D7;">#1A273A</div>
+            </div>
+          </div>
+
+          <div class="palette-item" style="border-bottom: 1px dashed #3E4A62;">
+            <div class="palette-role" style="color: #8A9CA8;">박스/카드 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #3E4A62; border:none;"></div>
+              <div class="palette-hex" style="color: #D9D9D7;">#3E4A62</div>
+            </div>
+          </div>
+
+          <div class="palette-item" style="border-bottom: 1px dashed #3E4A62;">
+            <div class="palette-role" style="color: #8A9CA8;">테두리/구분선</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #5D6D81; border:none;"></div>
+              <div class="palette-hex" style="color: #D9D9D7;">#5D6D81</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role" style="color: #8A9CA8;">기본 글씨색</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #D9D9D7; border:none;"></div>
+              <div class="palette-hex" style="color: #D9D9D7;">#D9D9D7</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palette 4: Lavender Teal -->
+      <div class="palette-card">
+        <div class="palette-header" style="background: #F0E4E4;">
+          <div class="swatch" style="background: #9765C8;"></div>
+          <span>Lavender Teal (트렌디/전문)</span>
+        </div>
+        <div class="palette-body">
+          <p style="font-size: 12px; color: #5E6C84; margin-bottom: 20px;">보라색 톤과 청록색을 매칭하여 전문적이고 세련된 인상을 주는 IT/소프트웨어 화면에 추천합니다.</p>
+          
+          <div class="palette-item">
+            <div class="palette-role">포인트/버튼</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #9765C8;"></div>
+              <div class="palette-hex">#9765C8</div>
+            </div>
+          </div>
+          
+          <div class="palette-item">
+            <div class="palette-role">화면 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #F0E4E4;"></div>
+              <div class="palette-hex">#F0E4E4</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">박스/카드 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #FFFFFF;"></div>
+              <div class="palette-hex">#FFFFFF</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">테두리(활성)</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #15CDA9;"></div>
+              <div class="palette-hex">#15CDA9</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">기본 글씨색</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #099A97;"></div>
+              <div class="palette-hex">#099A97</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palette 5: Warm Orange -->
+      <div class="palette-card">
+        <div class="palette-header" style="background: #FFF9F6;">
+          <div class="swatch" style="background: #ED743F;"></div>
+          <span>Warm Orange (활기/에너지)</span>
+        </div>
+        <div class="palette-body">
+          <p style="font-size: 12px; color: #5E6C84; margin-bottom: 20px;">에너지가 넘치고 눈에 띄는 조합입니다. 영업/CRM이나 사용자의 즉각적 조치가 필요한 화면에 좋습니다.</p>
+          
+          <div class="palette-item">
+            <div class="palette-role">포인트/버튼</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #ED743F;"></div>
+              <div class="palette-hex">#ED743F</div>
+            </div>
+          </div>
+          
+          <div class="palette-item">
+            <div class="palette-role">화면 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #FFF9F6;"></div>
+              <div class="palette-hex">#FFF9F6</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">박스/카드 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #FFFFFF;"></div>
+              <div class="palette-hex">#FFFFFF</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">테두리/구분선</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #FFD8C9;"></div>
+              <div class="palette-hex">#FFD8C9</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">기본 글씨색</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #423465;"></div>
+              <div class="palette-hex">#423465</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palette 6: Yellow Navy -->
+      <div class="palette-card">
+        <div class="palette-header" style="background: #F4F5F7;">
+          <div class="swatch" style="background: #FFD716;"></div>
+          <span>Yellow Navy (명확/강조)</span>
+        </div>
+        <div class="palette-body">
+          <p style="font-size: 12px; color: #5E6C84; margin-bottom: 20px;">명도 대비가 뚜렷한 노란색과 짙은 네이비를 사용하여 데이터나 지표가 또렷하게 보이게 합니다.</p>
+          
+          <div class="palette-item">
+            <div class="palette-role">포인트/버튼</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #FFD716;"></div>
+              <div class="palette-hex">#FFD716</div>
+            </div>
+          </div>
+          
+          <div class="palette-item">
+            <div class="palette-role">화면 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #F4F5F7;"></div>
+              <div class="palette-hex">#F4F5F7</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">박스/카드 배경</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #FFFFFF;"></div>
+              <div class="palette-hex">#FFFFFF</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">테두리/구분선</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #DFE1E6;"></div>
+              <div class="palette-hex">#DFE1E6</div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-role">기본 글씨색</div>
+            <div class="flex items-center flex-1">
+              <div class="palette-box" style="background: #001F3E;"></div>
+              <div class="palette-hex">#001F3E</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     DETAIL PAGE 2: TYPOGRAPHY (상황별 글씨 크기 조합)
+     ========================================================= -->
+<div id="page-typography" class="page">
+  <div class="sub-header">
+    <div class="sub-header-inner">
+      <a class="back-link" onclick="showPage('main')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        메인으로 돌아가기
+      </a>
+      <h1>🔤 상황별 글씨 크기 조합 (Typography Scales)</h1>
+      <p class="desc">화면의 성격에 따라 기준이 되는 글씨 크기를 먼저 골라 보세요. 거기에 딱 맞는 제목과 본문 크기를 세트로 알려 드립니다.</p>
+    </div>
+  </div>
+
+  <div class="content-narrow">
+    <div class="grid-3">
+      
+      <!-- Typo 1: Standard -->
+      <div class="typo-card" style="border-top: 4px solid #0052CC;">
+        <div class="typo-card-header">표준 (Standard)</div><div class="typo-card-desc">가장 일반적인 형태의 업무 화면입니다. 입력창이나 그리드가 적당히 배치된 화면에 추천합니다.</div>
+        <div class="typo-row"><div class="typo-size-badge">24</div><div><div style="font-size: 24px; font-weight: bold; color: #172B4D; line-height: 1.2;">대제목 (Title)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">화면 최상단 타이틀</div></div></div>
+        <div class="typo-row" style="background: #FAFBFC; margin: 0 -24px; padding: 12px 24px;"><div class="typo-size-badge" style="background: #0052CC; color: white;">16</div><div><div style="font-size: 16px; font-weight: bold; color: #172B4D; line-height: 1.2;">소제목 (Sub)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">섹션이나 그리드의 제목</div></div></div>
+        <div class="typo-row"><div class="typo-size-badge">14</div><div><div style="font-size: 14px; color: #333; line-height: 1.2;">본문 (Body)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">일반적인 텍스트 및 라벨</div></div></div>
+      </div>
+
+      <!-- Typo 2: Compact -->
+      <div class="typo-card" style="border-top: 4px solid #36B37E;">
+        <div class="typo-card-header">밀집형 (Compact)</div><div class="typo-card-desc">한 화면에 수많은 데이터를 담아야 하는 복잡한 조회 화면에 추천합니다.</div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #006644; background: #E3FCEF;">20</div><div><div style="font-size: 20px; font-weight: bold; color: #172B4D; line-height: 1.2;">대제목 (Title)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">화면 최상단 타이틀</div></div></div>
+        <div class="typo-row" style="background: #FAFBFC; margin: 0 -24px; padding: 12px 24px;"><div class="typo-size-badge" style="background: #006644; color: white;">14</div><div><div style="font-size: 14px; font-weight: bold; color: #172B4D; line-height: 1.2;">소제목 (Sub)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">섹션이나 그리드의 제목</div></div></div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #006644; background: #E3FCEF;">12</div><div><div style="font-size: 12px; color: #333; line-height: 1.2;">본문 (Body)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">좁은 그리드 내부 데이터 등</div></div></div>
+      </div>
+
+      <!-- Typo 3: Large -->
+      <div class="typo-card" style="border-top: 4px solid #172B4D;">
+        <div class="typo-card-header">가독성형 (Large)</div><div class="typo-card-desc">멀리서도 잘 보여야 하는 대시보드나, 현장 모니터링 화면에 추천합니다.</div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #172B4D; background: #EBECF0;">28</div><div><div style="font-size: 28px; font-weight: bold; color: #172B4D; line-height: 1.2;">대제목 (Title)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">화면 최상단 타이틀</div></div></div>
+        <div class="typo-row" style="background: #FAFBFC; margin: 0 -24px; padding: 12px 24px;"><div class="typo-size-badge" style="background: #172B4D; color: white;">18</div><div><div style="font-size: 18px; font-weight: bold; color: #172B4D; line-height: 1.2;">소제목 (Sub)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">섹션이나 큰 위젯의 제목</div></div></div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #172B4D; background: #EBECF0;">16</div><div><div style="font-size: 16px; color: #333; line-height: 1.2;">본문 (Body)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">주요 지표나 일반 텍스트</div></div></div>
+      </div>
+
+      <!-- Typo 4: Spacious -->
+      <div class="typo-card" style="border-top: 4px solid #6554C0;">
+        <div class="typo-card-header">시원형 (Spacious)</div><div class="typo-card-desc">입력 폼 위주의 신청 화면이나 설정 마법사처럼 글씨를 큼직하게 배치해야 할 때 좋습니다.</div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #6554C0; background: #EAE6FF;">32</div><div><div style="font-size: 32px; font-weight: bold; color: #172B4D; line-height: 1.2;">대제목 (Title)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">화면 최상단 타이틀</div></div></div>
+        <div class="typo-row" style="background: #FAFBFC; margin: 0 -24px; padding: 12px 24px;"><div class="typo-size-badge" style="background: #6554C0; color: white;">20</div><div><div style="font-size: 20px; font-weight: bold; color: #172B4D; line-height: 1.2;">소제목 (Sub)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">섹션 제목 및 주요 안내문</div></div></div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #6554C0; background: #EAE6FF;">16</div><div><div style="font-size: 16px; color: #333; line-height: 1.2;">본문 (Body)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">일반적인 텍스트 및 라벨</div></div></div>
+      </div>
+
+      <!-- Typo 5: Data-Heavy -->
+      <div class="typo-card" style="border-top: 4px solid #EA5455;">
+        <div class="typo-card-header">초밀집형 (Data-Heavy)</div><div class="typo-card-desc">엑셀처럼 수많은 데이터를 한 화면에 밀도 있게 배치하여 비교/조회해야 하는 화면에 필수적입니다.</div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #EA5455; background: #FFF5F5;">16</div><div><div style="font-size: 16px; font-weight: bold; color: #172B4D; line-height: 1.2;">대제목 (Title)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">화면 최상단 타이틀</div></div></div>
+        <div class="typo-row" style="background: #FAFBFC; margin: 0 -24px; padding: 12px 24px;"><div class="typo-size-badge" style="background: #EA5455; color: white;">13</div><div><div style="font-size: 13px; font-weight: bold; color: #172B4D; line-height: 1.2;">소제목 (Sub)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">섹션이나 좁은 그리드 헤더</div></div></div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #EA5455; background: #FFF5F5;">11</div><div><div style="font-size: 11px; color: #333; line-height: 1.2;">본문 (Body)</div><div style="font-size: 10px; color: #5E6C84; margin-top: 4px;">그리드 내부의 수많은 데이터</div></div></div>
+      </div>
+
+      <!-- Typo 6: Mobile -->
+      <div class="typo-card" style="border-top: 4px solid #008DA6;">
+        <div class="typo-card-header">모바일형 (Mobile / Tablet)</div><div class="typo-card-desc">좁은 화면에서도 손가락 터치가 쉽고 글씨가 잘 읽혀야 하는 반응형 화면에 추천합니다.</div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #008DA6; background: #E6FCFF;">20</div><div><div style="font-size: 20px; font-weight: bold; color: #172B4D; line-height: 1.2;">대제목 (Title)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">모바일 헤더 타이틀</div></div></div>
+        <div class="typo-row" style="background: #FAFBFC; margin: 0 -24px; padding: 12px 24px;"><div class="typo-size-badge" style="background: #008DA6; color: white;">16</div><div><div style="font-size: 16px; font-weight: bold; color: #172B4D; line-height: 1.2;">소제목 (Sub)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">모바일 카드/섹션 제목</div></div></div>
+        <div class="typo-row"><div class="typo-size-badge" style="color: #008DA6; background: #E6FCFF;">14</div><div><div style="font-size: 14px; color: #333; line-height: 1.2;">본문 (Body)</div><div style="font-size: 11px; color: #5E6C84; margin-top: 4px;">일반 텍스트 (터치하기 좋은 크기)</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     DETAIL PAGE 3: LAYOUT & SPACING (대시보드 위젯/간격 중심 개편)
+     ========================================================= -->
+<div id="page-spacing" class="page">
+  <div class="sub-header">
+    <div class="sub-header-inner">
+      <a class="back-link" onclick="showPage('main')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        메인으로 돌아가기
+      </a>
+      <h1>📐 대시보드 레이아웃 및 여백 가이드 (Layout & Spacing)</h1>
+      <p class="desc">가장 많이 쓰이는 대시보드 화면 형태들과, 제목과 차트 사이, 위젯과 위젯 사이의 간격을 어떻게 띄워야 할지 구체적인 공식(Formula)을 알려 드립니다.</p>
+    </div>
+  </div>
+
+  <div class="content-narrow">
+    
+    <!-- 1. 대표 대시보드 레이아웃 3선 -->
+    <div class="info-box">
+      <p style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">🏗️ 1. 대표적인 업무/대시보드 화면 뼈대 3가지</p>
+      <p>목적에 맞는 뼈대를 먼저 잡아 보세요. 화면 최상단에는 공통적으로 [페이지 제목]과 [조회/검색 영역]이 들어갑니다.</p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom: 60px;">
+      
+      <!-- Pattern 1: Master-Detail -->
+      <div class="dash-var-card">
+        <div class="dash-var-mockup">
+          <div class="dash-mock-header"><div class="dash-mock-header-title"></div><div class="dash-mock-header-search"></div></div>
+          <div class="dash-mock-body">
+            <div class="dash-mock-card" style="flex: 1;">
+              <div class="dash-mock-card-title"></div><div class="dash-mock-card-content"></div>
+            </div>
+            <div class="dash-mock-card" style="flex: 2; gap: 8px;">
+              <div style="display:flex; gap:8px; height:30%;"><div class="dash-mock-card-content" style="background:#FFF5F5; border:1px solid #FFBDAD;"></div><div class="dash-mock-card-content" style="background:#FFF5F5; border:1px solid #FFBDAD;"></div><div class="dash-mock-card-content" style="background:#FFF5F5; border:1px solid #FFBDAD;"></div></div>
+              <div class="dash-mock-card-title"></div><div class="dash-mock-card-content" style="background:#E3FCEF;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-var-desc">
+          <h4>목록-상세 조회형 (Master-Detail)</h4>
+          <p>가장 일반적인 업무 화면입니다. 좌측 메인 그리드에서 항목을 선택하면 우측 패널에 상세 정보나 차트가 나타납니다.</p>
+        </div>
+      </div>
+
+      <!-- Pattern 2: KPI Dashboard -->
+      <div class="dash-var-card">
+        <div class="dash-var-mockup">
+          <div class="dash-mock-header"><div class="dash-mock-header-title"></div><div class="dash-mock-header-search"></div></div>
+          <div style="display:flex; gap:12px; height: 30px;">
+            <div class="dash-mock-card" style="padding:4px;"><div class="dash-mock-card-title" style="background:#1DA9FC;"></div><div class="dash-mock-card-content" style="background:transparent; border-top:1px solid #DFE1E6;"></div></div>
+            <div class="dash-mock-card" style="padding:4px;"><div class="dash-mock-card-title" style="background:#1DA9FC;"></div><div class="dash-mock-card-content" style="background:transparent; border-top:1px solid #DFE1E6;"></div></div>
+            <div class="dash-mock-card" style="padding:4px;"><div class="dash-mock-card-title" style="background:#1DA9FC;"></div><div class="dash-mock-card-content" style="background:transparent; border-top:1px solid #DFE1E6;"></div></div>
+            <div class="dash-mock-card" style="padding:4px;"><div class="dash-mock-card-title" style="background:#1DA9FC;"></div><div class="dash-mock-card-content" style="background:transparent; border-top:1px solid #DFE1E6;"></div></div>
+          </div>
+          <div class="dash-mock-body" style="flex-direction: column;">
+            <div style="display:flex; gap:12px; flex:1;">
+               <div class="dash-mock-card"><div class="dash-mock-card-title"></div><div class="dash-mock-card-content"></div></div>
+               <div class="dash-mock-card"><div class="dash-mock-card-title"></div><div class="dash-mock-card-content"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-var-desc">
+          <h4>KPI 종합 대시보드형 (KPI & Charts)</h4>
+          <p>화면 상단에 가장 중요한 4~5개의 KPI 요약 카드를 가로로 배치하고, 하단에 그에 대한 차트/표를 나란히 배치합니다.</p>
+        </div>
+      </div>
+
+      <!-- Pattern 3: Widget Dashboard -->
+      <div class="dash-var-card">
+        <div class="dash-var-mockup">
+          <div class="dash-mock-header"><div class="dash-mock-header-title"></div><div class="dash-mock-header-search"></div></div>
+          <div class="dash-mock-body">
+            <div class="dash-mock-card" style="flex: 1;">
+              <div class="dash-mock-card-title"></div><div class="dash-mock-card-content"></div>
+            </div>
+            <div style="flex: 1.5; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display:flex; gap:12px; flex:1;">
+                <div class="dash-mock-card"><div class="dash-mock-card-title"></div><div class="dash-mock-card-content"></div></div>
+                <div class="dash-mock-card"><div class="dash-mock-card-title"></div><div class="dash-mock-card-content"></div></div>
+              </div>
+              <div class="dash-mock-card" style="flex:1.5;"><div class="dash-mock-card-title"></div><div class="dash-mock-card-content"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-var-desc">
+          <h4>분할형 위젯 대시보드 (Split Widgets)</h4>
+          <p>좌측에 세로로 긴 표(List)를 두고, 우측에 2x2 또는 1+2 형태로 여러 지표 차트를 쪼개서 보여주는 방식입니다.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2. Spacing Formula -->
+    <div class="info-box" style="margin-bottom: 20px; border-left: 4px solid #0052CC;">
+      <p style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">📏 2. 대시보드를 위한 '절대 간격' 공식 (Spacing Formula)</p>
+      <p>제목과 본문 사이는 얼마나 띄워야 할까요? 위젯(카드) 사이는요? 아래 해부도에 적힌 <b>4가지 숫자 (24, 20, 16, 8)</b>를 똑같이 적용해 보세요.</p>
+    </div>
+
+    <div class="spacing-formula-box">
+      
+      <!-- Visual Blueprint -->
+      <div class="sf-diagram">
+        <!-- Page padding visualization -->
+        <div class="pad-badge" style="top: -12px; left: 50%; transform: translateX(-50%);">화면 바깥 여백 24px</div>
+        <div class="pad-area" style="top: 0; left: 0; right: 0; bottom: 0; border: 4px solid rgba(54,179,126,0.3); border-radius: 8px;"></div>
+        
+        <!-- Search Area -->
+        <div style="background: #fff; padding: 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-weight: bold; color: #172B4D; font-size: 16px;">대시보드 타이틀</div>
+          <div style="display: flex; gap: 8px;">
+            <div style="height: 32px; width: 120px; border: 1px solid #DFE1E6; border-radius: 4px; background: #FAFBFC;"></div>
+            <!-- Control Gap -->
+            <div style="position: relative; width: 80px;">
+              <div style="height: 32px; width: 80px; background: #0052CC; border-radius: 4px;"></div>
+              <div class="gap-badge" style="top: 50%; left: -12px; transform: translateY(-50%); padding: 1px 4px; font-size: 9px;">8px</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Margin -->
+        <div style="position: relative; height: 2px;">
+          <div class="gap-badge" style="top: -10px; left: 20%; background: #FF9F43; color: #172B4D;">영역 간격 24px</div>
+          <div class="gap-line-v" style="top: -22px; left: 20%; height: 24px; width: 2px; background: #FF9F43;"></div>
+        </div>
+
+        <!-- Cards Area -->
+        <div style="display: flex; gap: 20px; flex: 1; position: relative;">
+          
+          <!-- Card 1 -->
+          <div class="sf-card" style="flex: 1;">
+            <div class="sf-card-header">
+              <div class="sf-card-title">소제목 (Subtitle)</div>
+              <div style="width: 24px; height: 12px; background: #DFE1E6; border-radius: 6px;"></div>
+            </div>
+            
+            <!-- Card Inner Padding visualization -->
+            <div class="pad-badge" style="top: 60px; left: -8px; padding: 1px 4px; font-size: 9px;">안쪽 20px</div>
+            
+            <!-- Title to Content Gap -->
+            <div style="position: relative;">
+              <div class="gap-badge" style="top: -8px; left: 50%; transform: translateX(-50%); padding: 1px 4px; font-size: 9px;">제목↔차트 16px</div>
+              <div class="gap-line-v" style="top: 0; left: 50%; height: 16px; width: 2px;"></div>
+            </div>
+
+            <div class="sf-card-body">
+              Chart Area (차트 또는 그리드)
+            </div>
+          </div>
+
+          <!-- Gutter -->
+          <div class="gap-badge" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">카드 사이 20px</div>
+
+          <!-- Card 2 -->
+          <div class="sf-card" style="flex: 1;">
+            <div class="sf-card-header">
+              <div class="sf-card-title">소제목 2</div>
+            </div>
+            <div class="sf-card-body">
+              Grid Area
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Spacing Specifications -->
+      <div class="sf-specs">
+        
+        <div class="sf-spec-item">
+          <div class="sf-spec-name">
+            <div style="width: 12px; height: 12px; background: #36B37E; border-radius: 2px;"></div>
+            화면 바깥 가장자리 여백
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+            <div class="sf-spec-desc">화면의 가장 끝에서 내용이 시작되는 여백 (Page Padding)</div>
+            <div class="sf-spec-val">24px</div>
+          </div>
+        </div>
+
+        <div class="sf-spec-item">
+          <div class="sf-spec-name">
+            <div style="width: 12px; height: 12px; background: #FF9F43; border-radius: 2px;"></div>
+            상단 검색부 ↔ 하단 본문
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+            <div class="sf-spec-desc">검색 영역 박스와 그 아래 그리드/차트가 시작되는 사이 간격</div>
+            <div class="sf-spec-val">20px ~ 24px</div>
+          </div>
+        </div>
+
+        <div class="sf-spec-item">
+          <div class="sf-spec-name">
+            <div style="width: 12px; height: 12px; background: #EA5455; border-radius: 2px;"></div>
+            위젯(카드) ↔ 위젯 사이
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+            <div class="sf-spec-desc">여러 개의 카드를 나열할 때 카드와 카드 사이의 공간 (Gutter)</div>
+            <div class="sf-spec-val">20px</div>
+          </div>
+        </div>
+
+        <div class="sf-spec-item">
+          <div class="sf-spec-name">
+            <div style="width: 12px; height: 12px; background: #36B37E; border-radius: 2px;"></div>
+            위젯(카드) 안쪽 여백
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+            <div class="sf-spec-desc">카드 테두리와 내부 콘텐츠(글자/차트) 사이의 숨통 (Inner Padding)</div>
+            <div class="sf-spec-val">20px</div>
+          </div>
+        </div>
+
+        <div class="sf-spec-item" style="background: #E6EFFC; padding: 12px; border-radius: 6px; border: 1px solid #B3D4FF;">
+          <div class="sf-spec-name" style="color: #0052CC;">
+            <div style="width: 12px; height: 12px; background: #0052CC; border-radius: 2px;"></div>
+            소제목 ↔ 본문/차트 간격
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+            <div class="sf-spec-desc" style="color: #172B4D; font-weight: 500;">위젯 안에서 제목과 내용물이 너무 붙지 않게 띄워 주는 값입니다.</div>
+            <div class="sf-spec-val" style="background: #0052CC; color: #fff; border:none;">16px</div>
+          </div>
+        </div>
+
+        <div class="sf-spec-item" style="border:none;">
+          <div class="sf-spec-name">
+            <div style="width: 12px; height: 12px; background: #EA5455; border-radius: 2px;"></div>
+            컨트롤 ↔ 컨트롤 간격
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+            <div class="sf-spec-desc">라벨과 입력창 사이, 또는 버튼과 버튼 사이의 좁은 간격</div>
+            <div class="sf-spec-val">8px ~ 12px</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- =========================================================
+     DETAIL PAGE: CONTROL DETAILS (컨트롤 상세 설정)
+     ========================================================= -->
+<div id="page-controls" class="page">
+  <div class="sub-header">
+    <div class="sub-header-inner">
+      <a class="back-link" onclick="showPage('main')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        메인으로 돌아가기
+      </a>
+      <h1>🧩 컨트롤 상세 설정값 (Component Details)</h1>
+      <p class="desc">메인 화면에 나온 필수 컨트롤(버튼, 입력창, 캘린더, 그리드)의 기본 형태와 상태별 속성값을 총망라하여 정리했습니다.</p>
+    </div>
+  </div>
+
+  <div class="content-narrow">
+    
+    <!-- 1. 버튼 상태 -->
+    <div class="panel">
+      <div class="panel-header">🔘 버튼 형태 및 상태 (Button States)</div>
+      <div class="panel-body">
+        <p style="font-size: 12px; color: #5E6C84; margin-bottom: 16px;">가장 많이 쓰는 기본(Normal) 상태와 마우스를 올렸을 때(Hover)의 설정값입니다.</p>
+
+        <div class="grid-2x2">
+          
+          <!-- 주요 버튼 -->
+          <div class="control-card" style="margin-bottom: 0; background: #FAFBFC; flex-direction: column; align-items: stretch; gap: 16px;">
+            <div style="font-size: 13px; font-weight: bold; color:#172B4D; border-bottom: 1px dashed #DFE1E6; padding-bottom: 8px;">주요 버튼 (저장, 조회 등)</div>
+            
+            <div class="flex items-center gap-3">
+              <div class="state-label">기본 (Normal)</div>
+              <button class="btn btn-solid">저장</button>
+            </div>
+            <div class="control-specs" style="margin-left: 82px;">
+              <div class="spec-line"><span class="spec-badge">높이</span> <code>36</code></div>
+              <div class="spec-line"><span class="spec-badge">둥글기</span> <code>4</code></div>
+              <div class="spec-line"><span class="spec-badge">배경색</span> <code>#0052CC</code></div>
+              <div class="spec-line"><span class="spec-badge">글자색</span> <code>#FFFFFF</code> (흰색)</div>
+            </div>
+
+            <div class="flex items-center gap-3" style="margin-top: 8px;">
+              <div class="state-label">마우스오버</div>
+              <button class="btn" style="background: #0043CC; color: white;">저장</button>
+            </div>
+            <div class="control-specs" style="margin-left: 82px;">
+              <div class="spec-line"><span class="spec-badge">배경색</span> 조금 더 진한 <code>#0043CC</code></div>
+            </div>
+          </div>
+
+          <!-- 보조 버튼 -->
+          <div class="control-card" style="margin-bottom: 0; background: #FAFBFC; flex-direction: column; align-items: stretch; gap: 16px;">
+            <div style="font-size: 13px; font-weight: bold; color:#172B4D; border-bottom: 1px dashed #DFE1E6; padding-bottom: 8px;">보조 버튼 (취소, 닫기 등)</div>
+            
+            <div class="flex items-center gap-3">
+              <div class="state-label">기본 (Normal)</div>
+              <button class="btn btn-outline">취소</button>
+            </div>
+            <div class="control-specs" style="margin-left: 82px;">
+              <div class="spec-line"><span class="spec-badge">높이</span> <code>36</code></div>
+              <div class="spec-line"><span class="spec-badge">둥글기</span> <code>4</code></div>
+              <div class="spec-line"><span class="spec-badge">테두리</span> <code>#DFE1E6</code></div>
+              <div class="spec-line"><span class="spec-badge">글자색</span> <code>#172B4D</code> (진한 회색)</div>
+            </div>
+
+            <div class="flex items-center gap-3" style="margin-top: 8px;">
+              <div class="state-label">마우스오버</div>
+              <button class="btn" style="background: #F4F5F7; border: 1px solid #DFE1E6; color: #172B4D;">취소</button>
+            </div>
+            <div class="control-specs" style="margin-left: 82px;">
+              <div class="spec-line"><span class="spec-badge">배경색</span> 아주 연한 회색 <code>#F4F5F7</code></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 아이콘 버튼 가이드 -->
+    <div class="panel">
+      <div class="panel-header">🔘 아이콘 버튼 및 스타일 확장 (Icon Buttons)</div>
+      <div class="panel-body">
+        <p style="font-size: 12px; color: #5E6C84; margin-bottom: 16px;">버튼의 중요도에 따라 4가지 스타일(Text, Outline, Light, Solid)을 골라 쓰고, 아이콘을 조합해 직관성을 높여 보세요.</p>
+        
+        <div style="border: 1px solid #DFE1E6; border-radius: 6px; overflow: hidden; font-size: 13px;">
+          <div style="display: flex; background: #F4F5F7; border-bottom: 1px solid #DFE1E6; font-weight: bold; color: #5E6C84; text-align: center;">
+             <div style="flex: 1; padding: 12px; border-right: 1px solid #DFE1E6;">기능 (Action)</div>
+             <div style="flex: 1.2; padding: 12px;">Text (가장 약함)</div>
+             <div style="flex: 1.2; padding: 12px;">Outline (보통)</div>
+             <div style="flex: 1.2; padding: 12px;">Light (약간 강조)</div>
+             <div style="flex: 1.2; padding: 12px;">Solid (가장 강조)</div>
+          </div>
+          
+          <!-- Master Row -->
+          <div style="display: flex; align-items: center; border-bottom: 1px solid #F4F5F7; text-align: center; padding: 10px 0;">
+             <div style="flex: 1; font-weight: bold; color: #172B4D;">기본 (Master)</div>
+             <div style="flex: 1.2;"><button style="background:none; border:none; color:#5E6C84; font-weight:600; cursor:pointer; font-size:12px;">Master</button></div>
+             <div style="flex: 1.2;"><button style="background:#fff; border:1px solid #DFE1E6; border-radius:4px; color:#5E6C84; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">Master</button></div>
+             <div style="flex: 1.2;"><button style="background:#F4F5F7; border:none; border-radius:4px; color:#172B4D; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">Master</button></div>
+             <div style="flex: 1.2;"><button style="background:#5E6C84; border:none; border-radius:4px; color:#fff; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">Master</button></div>
+          </div>
+
+          <!-- Action Row -->
+          <div style="display: flex; align-items: center; border-bottom: 1px solid #F4F5F7; text-align: center; padding: 10px 0; background: #FAFBFC;">
+             <div style="flex: 1; font-weight: bold; color: #172B4D;">일반 (Add/Edit)</div>
+             <div style="flex: 1.2;"><button style="background:none; border:none; color:#0052CC; font-weight:600; cursor:pointer; font-size:12px;">＋ Add</button></div>
+             <div style="flex: 1.2;"><button style="background:#fff; border:1px solid #0052CC; border-radius:4px; color:#0052CC; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">＋ Add</button></div>
+             <div style="flex: 1.2;"><button style="background:#DEEBFF; border:none; border-radius:4px; color:#0052CC; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">＋ Add</button></div>
+             <div style="flex: 1.2;"><button style="background:#0052CC; border:none; border-radius:4px; color:#fff; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">＋ Add</button></div>
+          </div>
+
+          <!-- Submit Row -->
+          <div style="display: flex; align-items: center; border-bottom: 1px solid #F4F5F7; text-align: center; padding: 10px 0;">
+             <div style="flex: 1; font-weight: bold; color: #172B4D;">승인 (Submit)</div>
+             <div style="flex: 1.2;"><button style="background:none; border:none; color:#00875A; font-weight:600; cursor:pointer; font-size:12px;">✓ Submit</button></div>
+             <div style="flex: 1.2;"><button style="background:#fff; border:1px solid #00875A; border-radius:4px; color:#00875A; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">✓ Submit</button></div>
+             <div style="flex: 1.2;"><button style="background:#E3FCEF; border:none; border-radius:4px; color:#00875A; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">✓ Submit</button></div>
+             <div style="flex: 1.2;"><button style="background:#00875A; border:none; border-radius:4px; color:#fff; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">✓ Submit</button></div>
+          </div>
+
+          <!-- Cancel Row -->
+          <div style="display: flex; align-items: center; border-bottom: 1px solid #F4F5F7; text-align: center; padding: 10px 0; background: #FAFBFC;">
+             <div style="flex: 1; font-weight: bold; color: #172B4D;">취소 (Cancel)</div>
+             <div style="flex: 1.2;"><button style="background:none; border:none; color:#DE350B; font-weight:600; cursor:pointer; font-size:12px;">✕ Cancel</button></div>
+             <div style="flex: 1.2;"><button style="background:#fff; border:1px solid #DE350B; border-radius:4px; color:#DE350B; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">✕ Cancel</button></div>
+             <div style="flex: 1.2;"><button style="background:#FFEBE6; border:none; border-radius:4px; color:#DE350B; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">✕ Cancel</button></div>
+             <div style="flex: 1.2;"><button style="background:#DE350B; border:none; border-radius:4px; color:#fff; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">✕ Cancel</button></div>
+          </div>
+
+          <!-- Delete Row -->
+          <div style="display: flex; align-items: center; text-align: center; padding: 10px 0;">
+             <div style="flex: 1; font-weight: bold; color: #172B4D;">삭제 (Delete)</div>
+             <div style="flex: 1.2;"><button style="background:none; border:none; color:#B07D35; font-weight:600; cursor:pointer; font-size:12px;">🗑 Delete</button></div>
+             <div style="flex: 1.2;"><button style="background:#fff; border:1px solid #B07D35; border-radius:4px; color:#B07D35; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">🗑 Delete</button></div>
+             <div style="flex: 1.2;"><button style="background:#FFF0B3; border:none; border-radius:4px; color:#B07D35; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">🗑 Delete</button></div>
+             <div style="flex: 1.2;"><button style="background:#B07D35; border:none; border-radius:4px; color:#fff; font-weight:600; cursor:pointer; padding:6px 16px; font-size:12px;">🗑 Delete</button></div>
+          </div>
+
+        </div>
+
+        <!-- Tooltip / Info -->
+        <div style="margin-top: 16px; padding: 16px; border-radius: 4px; background: #FAFBFC; border: 1px solid #DFE1E6; border-left: 4px solid #0052CC;">
+          <p style="font-size: 13px; color: #172B4D; margin: 0; line-height: 1.6;">
+            <b>💡 스타일별 활용 팁</b><br>
+            • <span style="display:inline-block; width:55px; font-weight:bold;">Text</span>: 그리드 셀 내부의 동작 버튼이나 중요도가 낮은 부가 기능에 사용합니다.<br>
+            • <span style="display:inline-block; width:55px; font-weight:bold;">Outline</span>: 화면에 여러 버튼이 모여 있을 때 보조 버튼(취소, 뒤로가기 등)으로 사용합니다.<br>
+            • <span style="display:inline-block; width:55px; font-weight:bold;">Light</span>: 흰 배경 위에서 버튼 영역을 부드럽게 돋보이게 하고 싶을 때 사용합니다.<br>
+            • <span style="display:inline-block; width:55px; font-weight:bold;">Solid</span>: 화면에서 사용자가 가장 먼저 눌러야 하는 <b>가장 핵심적인 1개의 버튼</b>에만 사용합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 일반 폼 컨트롤 -->
+    <div class="panel">
+      <div class="panel-header">📝 일반 폼 컨트롤 (Form Inputs)</div>
+      <div class="panel-body">
+        
+        <!-- Input / Calendar / Combo -->
+        <div class="control-card" style="background: #FAFBFC; margin-bottom: 0;">
+          <div class="control-visual">
+            <div style="font-size:12px; font-weight:bold; margin-bottom:8px;">입력창 / 캘린더 / 콤보박스</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <input type="text" value="텍스트 입력" style="height:36px; border:1px solid #DFE1E6; border-radius:4px; padding:0 12px; width:100%; font-size:13px; outline:none;">
+              <div style="border:1px solid #DFE1E6; height:36px; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 12px; font-size:13px; background:#fff;">
+                2024-03-24 <span style="font-size:14px; color:#5E6C84;">📅</span>
+              </div>
+              <div style="border:1px solid #DFE1E6; height:36px; border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:0 12px; font-size:13px; background:#fff;">
+                옵션 선택하기 <span style="font-size: 10px;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div class="control-specs">
+            <div class="spec-line"><span class="spec-badge">높이</span> <code>36</code> (Height)</div>
+            <div class="spec-line"><span class="spec-badge">테두리</span> <code>#DFE1E6</code></div>
+            <div class="spec-line"><span class="spec-badge">둥글기</span> <code>4</code> (Radius)</div>
+            <div class="spec-line"><span class="spec-badge">내부여백</span> 텍스트가 안 붙게 Left <code>10~12</code></div>
+            <div class="spec-line"><span class="spec-badge">아이콘</span> 우측 정렬, 색상 <code>#5E6C84</code></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. 그리드 상세 설정 -->
+    <div class="panel">
+      <div class="panel-header">
+        <span>📊 데이터 그리드 상세 설정 (Grid Details)</span>
+        <a href="https://audp.bimatrix.co.kr/pages/viewpage.action?pageId=79397387" target="_blank" class="detail-link" style="background:#0052CC; color:#fff; border:none; padding: 6px 12px;">추가 그리드 가이드 문서 보기 ↗</a>
+      </div>
+      <div class="panel-body">
+        
+        <div style="display:flex; gap:20px; margin-bottom: 24px;">
+           <div style="flex:1;">
+               <h4 style="font-size: 13px; font-weight: 700; margin-bottom: 8px; color: #172B4D;">📏 행 높이 비례 가이드</h4>
+               <p style="font-size: 12px; color: #5E6C84; line-height: 1.6; margin-bottom: 0;">사용하시는 폰트 크기에 맞춰 그리드 높이도 조절해야 여백이 자연스럽습니다.<br>
+                  • <b>표준 (14px)</b> : 높이 <code>36px</code><br>
+                  • <b>밀집 (12px)</b> : 높이 <code>32px</code><br>
+                  • <b>초밀집 (11px)</b> : 높이 <code>28px</code>
+               </p>
+           </div>
+           <div style="flex:1; border-radius: 4px; background: #E3FCEF; border: 1px solid #ABF5D1; border-left: 4px solid #36B37E; padding: 12px;">
+               <h4 style="font-weight: 700; font-size: 13px; margin-bottom: 6px; color: #006644;">💡 행/열 테두리(Border) 꿀팁</h4>
+               <p style="font-size: 12px; color: #172B4D; line-height: 1.6; margin: 0;">모든 선을 진하게 그으면 데이터가 갇혀 보입니다.<br>
+               바깥 테두리는 <code>#DFE1E6</code>로 영역을 잡고, <b>가로/세로 내부 선</b>은 가장 연한 <code>#F4F5F7</code>를 쓰거나 세로선은 <b>투명(없음)</b>으로 처리해 보세요.</p>
+           </div>
+        </div>
+
+        <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; color:#172B4D;">1. 그리드 스타일 해부도 (Anatomy)</h4>
+        
+        <div style="background:#FAFBFC; padding: 24px; border-radius:8px; border:1px solid #DFE1E6; margin-bottom:40px;">
+           
+           <!-- Row: Header -->
+           <div style="display: flex; align-items: stretch; margin-bottom: -1px;">
+              <div style="width: 260px; text-align: right; padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+                 <div style="position: absolute; right: 0; top: 50%; width: 20px; height: 1px; background: #A9B4C3;"></div>
+                 <div style="position: absolute; right: -3px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: #A9B4C3; z-index:2;"></div>
+                 <div style="font-weight:700; color:#172B4D;">헤더 스타일</div>
+                 <div style="font-size:11px; color:#5E6C84; margin-top:4px;"><code>#F4F5F7</code> 바탕, <b>Bold</b> 중앙 정렬</div>
+              </div>
+              <div style="flex: 1; display: flex; border: 1px solid #DFE1E6; margin-left: 20px; background:#F4F5F7; font-weight:bold; text-align:center; border-bottom:1px solid #C5CDD7; z-index:1;">
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center; justify-content: center; border-right: 1px solid #DFE1E6;">항목 (Header)</div>
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center; justify-content: center;">값 (Header)</div>
+              </div>
+           </div>
+
+           <!-- Row: Data -->
+           <div style="display: flex; align-items: stretch; margin-bottom: -1px;">
+              <div style="width: 260px; text-align: right; padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+                 <div style="position: absolute; right: 0; top: 50%; width: 20px; height: 1px; background: #A9B4C3;"></div>
+                 <div style="position: absolute; right: -3px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: #A9B4C3; z-index:2;"></div>
+                 <div style="font-weight:700; color:#172B4D;">일반 데이터 행</div>
+                 <div style="font-size:11px; color:#5E6C84; margin-top:4px;"><code>#FFFFFF</code> (기본 배경)</div>
+              </div>
+              <div style="flex: 1; display: flex; border: 1px solid #DFE1E6; margin-left: 20px; background:#FFFFFF; z-index:1;">
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center; border-right: 1px solid #F4F5F7;">데이터 1</div>
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center;">1,000</div>
+              </div>
+           </div>
+
+           <!-- Row: Zebra -->
+           <div style="display: flex; align-items: stretch; margin-bottom: -1px;">
+              <div style="width: 260px; text-align: right; padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+                 <div style="position: absolute; right: 0; top: 50%; width: 20px; height: 1px; background: #A9B4C3;"></div>
+                 <div style="position: absolute; right: -3px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: #A9B4C3; z-index:2;"></div>
+                 <div style="font-weight:700; color:#172B4D;">행 배경 (반복)</div>
+                 <div style="font-size:11px; color:#5E6C84; margin-top:4px;"><code>#FAFBFC</code> (데이터 구분을 위한 지브라 배색)</div>
+              </div>
+              <div style="flex: 1; display: flex; border: 1px solid #DFE1E6; margin-left: 20px; background:#FAFBFC; z-index:1;">
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center; border-right: 1px solid #F4F5F7;">데이터 2</div>
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center;">2,000</div>
+              </div>
+           </div>
+
+           <!-- Row: Subtotal -->
+           <div style="display: flex; align-items: stretch; margin-bottom: -1px;">
+              <div style="width: 260px; text-align: right; padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+                 <div style="position: absolute; right: 0; top: 50%; width: 20px; height: 1px; background: #A9B4C3;"></div>
+                 <div style="position: absolute; right: -3px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: #A9B4C3; z-index:2;"></div>
+                 <div style="font-weight:700; color:#172B4D;">소계 스타일</div>
+                 <div style="font-size:11px; color:#5E6C84; margin-top:4px;"><code>#F4F5F7</code> 바탕, <b>Bold</b><br>상단(소계 라인스타일): <code>1px solid #C5CDD7</code></div>
+              </div>
+              <div style="flex: 1; display: flex; border: 1px solid #DFE1E6; margin-left: 20px; background:#F4F5F7; font-weight:bold; border-top:1px solid #C5CDD7; color:#172B4D; z-index:1;">
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center; border-right: 1px solid #DFE1E6;">소계</div>
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center;">3,000</div>
+              </div>
+           </div>
+
+           <!-- Row: Total -->
+           <div style="display: flex; align-items: stretch;">
+              <div style="width: 260px; text-align: right; padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+                 <div style="position: absolute; right: 0; top: 50%; width: 20px; height: 1px; background: #A9B4C3;"></div>
+                 <div style="position: absolute; right: -3px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: #A9B4C3; z-index:2;"></div>
+                 <div style="font-weight:700; color:#172B4D;">총합계 스타일</div>
+                 <div style="font-size:11px; color:#5E6C84; margin-top:4px;"><code>#E4ECF0</code> 바탕, <b>Bold</b><br>상단 라인: <code>1px solid #A9B4C3</code></div>
+              </div>
+              <div style="flex: 1; display: flex; border: 1px solid #DFE1E6; margin-left: 20px; background:#E4ECF0; font-weight:bold; border-top:1px solid #A9B4C3; color:#172B4D; z-index:1;">
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center; border-right: 1px solid #C5CDD7;">총합계</div>
+                 <div style="flex: 1; padding: 12px; display: flex; align-items: center;">3,000</div>
+              </div>
+           </div>
+        </div>
+
+        <!-- 2. 테마별 선택 색상 옵션 전면 개편 -->
+        <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; color:#172B4D;">2. 테마별 그리드 색상 적용표 (Grid Theme Colors)</h4>
+        <p style="font-size:12px; color:#5E6C84; margin-bottom:16px;">대시보드의 주조색(Primary Color) 테마에 맞춰, 그리드의 헤더/반복행/선택행/테두리 색상을 아래 세트대로 입력해 보세요.</p>
+        
+        <div class="grid-2x2">
+           <!-- Blue Theme -->
+           <div style="border:1px solid #DFE1E6; border-radius:6px; overflow:hidden; background:#fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+               <div style="padding:16px; background:#F4F5F7; border-bottom:1px solid #DFE1E6; font-weight:700; color:#0052CC; display:flex; align-items:center; gap:8px;">
+                 <div style="width:12px; height:12px; border-radius:50%; background:#0052CC;"></div>블루 테마 (Standard Blue)
+               </div>
+               <div style="padding:20px;">
+                   <!-- Mini Preview -->
+                   <div style="border:1px solid #DFE1E6; border-radius:4px; overflow:hidden; font-size:11px; text-align:center; margin-bottom:16px;">
+                       <div style="background:#F4F5F7; padding:8px; font-weight:bold; border-bottom:1px solid #DFE1E6;">헤더 스타일</div>
+                       <div style="background:#FFFFFF; padding:8px; border-bottom:1px solid #F4F5F7; color:#172B4D;">일반 데이터</div>
+                       <div style="background:#FAFBFC; padding:8px; border-bottom:1px solid #F4F5F7; color:#172B4D;">행 배경 (반복)</div>
+                       <div style="background:#E6EFFC; padding:8px; color:#0052CC; font-weight:bold;">선택 레코드 색</div>
+                   </div>
+                   <!-- Props -->
+                   <div style="display:flex; flex-direction:column; gap:8px; font-size:12px;">
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">헤더 스타일</span><code style="background:#F4F5F7; color:#172B4D;">#F4F5F7</code></div>
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">행 배경 (반복)</span><code style="background:#F4F5F7; color:#172B4D;">#FAFBFC</code></div>
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">선택 레코드 색</span><code style="background:#E6EFFC; color:#0052CC;">#E6EFFC</code></div>
+                       <div style="display:flex; justify-content:space-between;"><span style="color:#5E6C84;">테두리 / 소계라인</span><code style="background:#F4F5F7; color:#172B4D;">#DFE1E6</code></div>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Green Theme -->
+           <div style="border:1px solid #DFE1E6; border-radius:6px; overflow:hidden; background:#fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+               <div style="padding:16px; background:#F0FAF5; border-bottom:1px solid #ABF5D1; font-weight:700; color:#006644; display:flex; align-items:center; gap:8px;">
+                 <div style="width:12px; height:12px; border-radius:50%; background:#006644;"></div>소프트 그린 테마 (Soft Green)
+               </div>
+               <div style="padding:20px;">
+                   <!-- Mini Preview -->
+                   <div style="border:1px solid #ABF5D1; border-radius:4px; overflow:hidden; font-size:11px; text-align:center; margin-bottom:16px;">
+                       <div style="background:#F0FAF5; padding:8px; font-weight:bold; border-bottom:1px solid #ABF5D1;">헤더 스타일</div>
+                       <div style="background:#FFFFFF; padding:8px; border-bottom:1px solid #F0FAF5; color:#172B4D;">일반 데이터</div>
+                       <div style="background:#F7FCF9; padding:8px; border-bottom:1px solid #F0FAF5; color:#172B4D;">행 배경 (반복)</div>
+                       <div style="background:#E3FCEF; padding:8px; color:#006644; font-weight:bold;">선택 레코드 색</div>
+                   </div>
+                   <!-- Props -->
+                   <div style="display:flex; flex-direction:column; gap:8px; font-size:12px;">
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">헤더 스타일</span><code style="background:#F0FAF5; color:#172B4D;">#F0FAF5</code></div>
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">행 배경 (반복)</span><code style="background:#F4F5F7; color:#172B4D;">#F7FCF9</code></div>
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">선택 레코드 색</span><code style="background:#E3FCEF; color:#006644;">#E3FCEF</code></div>
+                       <div style="display:flex; justify-content:space-between;"><span style="color:#5E6C84;">테두리 / 소계라인</span><code style="background:#F4F5F7; color:#172B4D;">#ABF5D1</code></div>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Modern Dark Theme -->
+           <div style="border:1px solid #DFE1E6; border-radius:6px; overflow:hidden; background:#fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+               <div style="padding:16px; background:#EBECF0; border-bottom:1px solid #C5CDD7; font-weight:700; color:#172B4D; display:flex; align-items:center; gap:8px;">
+                 <div style="width:12px; height:12px; border-radius:50%; background:#172B4D;"></div>모던 다크 테마 (Modern Dark)
+               </div>
+               <div style="padding:20px;">
+                   <!-- Mini Preview -->
+                   <div style="border:1px solid #C5CDD7; border-radius:4px; overflow:hidden; font-size:11px; text-align:center; margin-bottom:16px;">
+                       <div style="background:#EBECF0; padding:8px; font-weight:bold; border-bottom:1px solid #C5CDD7;">헤더 스타일</div>
+                       <div style="background:#FFFFFF; padding:8px; border-bottom:1px solid #F4F5F7; color:#172B4D;">일반 데이터</div>
+                       <div style="background:#FAFBFC; padding:8px; border-bottom:1px solid #F4F5F7; color:#172B4D;">행 배경 (반복)</div>
+                       <div style="background:#E4ECF0; padding:8px; color:#172B4D; font-weight:bold;">선택 레코드 색</div>
+                   </div>
+                   <!-- Props -->
+                   <div style="display:flex; flex-direction:column; gap:8px; font-size:12px;">
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">헤더 스타일</span><code style="background:#EBECF0; color:#172B4D;">#EBECF0</code></div>
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">행 배경 (반복)</span><code style="background:#F4F5F7; color:#172B4D;">#FAFBFC</code></div>
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">선택 레코드 색</span><code style="background:#E4ECF0; color:#172B4D;">#E4ECF0</code></div>
+                       <div style="display:flex; justify-content:space-between;"><span style="color:#5E6C84;">테두리 / 소계라인</span><code style="background:#F4F5F7; color:#172B4D;">#C5CDD7</code></div>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Warm Orange Theme -->
+           <div style="border:1px solid #DFE1E6; border-radius:6px; overflow:hidden; background:#fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+               <div style="padding:16px; background:#FFEBE6; border-bottom:1px solid #FFBDAD; font-weight:700; color:#BF2600; display:flex; align-items:center; gap:8px;">
+                 <div style="width:12px; height:12px; border-radius:50%; background:#BF2600;"></div>웜 오렌지 테마 (Warm Orange)
+               </div>
+               <div style="padding:20px;">
+                   <!-- Mini Preview -->
+                   <div style="border:1px solid #FFBDAD; border-radius:4px; overflow:hidden; font-size:11px; text-align:center; margin-bottom:16px;">
+                       <div style="background:#FFEBE6; padding:8px; font-weight:bold; border-bottom:1px solid #FFBDAD;">헤더 스타일</div>
+                       <div style="background:#FFFFFF; padding:8px; border-bottom:1px solid #FFF5F5; color:#172B4D;">일반 데이터</div>
+                       <div style="background:#FFF7F5; padding:8px; border-bottom:1px solid #FFF5F5; color:#172B4D;">행 배경 (반복)</div>
+                       <div style="background:#FFD8CC; padding:8px; color:#BF2600; font-weight:bold;">선택 레코드 색</div>
+                   </div>
+                   <!-- Props -->
+                   <div style="display:flex; flex-direction:column; gap:8px; font-size:12px;">
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">헤더 스타일</span><code style="background:#FFEBE6; color:#172B4D;">#FFEBE6</code></div>
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">행 배경 (반복)</span><code style="background:#F4F5F7; color:#172B4D;">#FFF7F5</code></div>
+                       <div style="display:flex; justify-content:space-between; border-bottom:1px dashed #DFE1E6; padding-bottom:6px;"><span style="color:#5E6C84;">선택 레코드 색</span><code style="background:#FFD8CC; color:#BF2600;">#FFD8CC</code></div>
+                       <div style="display:flex; justify-content:space-between;"><span style="color:#5E6C84;">테두리 / 소계라인</span><code style="background:#F4F5F7; color:#172B4D;">#FFBDAD</code></div>
+                   </div>
+               </div>
+           </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
